@@ -1,7 +1,9 @@
 <div id="app">
-  <h4> Tasks: </h4>
+  <h2> Tasks: </h2>
   <ul>
-    <li v-for ='task in tasks'><input type='text' v-model='task'></li>
+    <li v-for ='task in tasks'>{{ task.text }}</li>
   </ul>
-  
+  <h4> Add A Task</h4>
+  <input type='text' v-model='newTask' >
+  <button v-on:click='addTask()'> Add task </button> 
 </div>

@@ -5,11 +5,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     el: '#app',
     data: {
       tasks: [
-        'Annoy Cat',
-        'Take out Dishes',
-        'Do Laundry'
-      ]
-
+        { text: 'Annoy Cat' },
+        { text: 'Take out Dishes' },
+        { text: 'Do Laundry' }
+      ],
+      newTask: '',
+    },
+    methods: {
+      addTask: function() {
+        this.tasks.push({ text: this.newTask });
+        this.newTask = '';
+      }
     }
   });
 });
