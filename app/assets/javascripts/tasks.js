@@ -5,16 +5,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
     el: '#app',
     data: {
       tasks: [
-        { text: 'Annoy Cat' },
-        { text: 'Take out Dishes' },
-        { text: 'Do Laundry' }
+        { text: 'Annoy Cat', completed: false },
+        { text: 'Take out Dishes', completed: false },
+        { text: 'Do Laundry', completed: false }
       ],
       newTask: '',
     },
     methods: {
       addTask: function() {
-        this.tasks.push({ text: this.newTask });
-        this.newTask = '';
+        if (this.newTask !== '') {
+          this.tasks.push({ text: this.newTask, completed: false });
+          this.newTask = '';
+        }
+      },
+      toggleComplete: function(task) {
+        task.completed = !task.completed;
       }
     }
   });
