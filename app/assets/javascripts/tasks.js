@@ -20,6 +20,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
       },
       toggleComplete: function(task) {
         task.completed = !task.completed;
+      },
+      incompleteTasks: function() {
+        var count = 0;
+        for (var i = 0; i < this.tasks.length; i++) {
+          if (!this.tasks[i].completed) {
+            count += 1;
+          }
+        }
+        return count;
+      },
+      removeCompletedTasks: function() {
+        var incompleteTasks = [];
+        for (var i = 0; i < this.tasks.length; i++) {
+          if (!this.tasks[i].completed) {
+            incompleteTasks.push(this.tasks[i]);
+          }
+        }
+        this.tasks = incompleteTasks;
       }
     }
   });
